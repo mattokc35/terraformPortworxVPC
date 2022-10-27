@@ -117,6 +117,50 @@ variable region {
    type = string
    default = "us-south"
 }
+  
+variable "portworx_version" {
+  type        = string
+  default     = "2.11.0"
+  description = "Image Version of Portworx Enterprise"
+}
+
+variable "upgrade_portworx" {
+  type        = bool
+  default     = false
+  description = "Upgrade Portworx Version to the respective `portworx_version`, `true` or `false`"
+}
+
+variable "use_external_etcd" {
+  type        = bool
+  default     = false
+  description = "Do you want to create an external_etcd? `true` or `false`"
+}
+
+variable "etcd_secret_name" {
+  type        = string
+  description = "The name of etcd secret certificate, required only when external etcd is used"
+  default     = null
+}
+
+variable "external_etcd_connection_url" {
+  type        = string
+  description = "The connection string with port number for the etcd, required only when external etcd is used"
+  default     = null
+}
+
+variable "pwx_plan" {
+  description = "Portworx plan type "
+  type        = string
+  default     = "px-enterprise"
+}
+
+variable "secret_type" {
+  description = "secret type"
+  type        = string
+  default     = "k8s"
+}
+
+
 
 ##############################################################################
 # cloud_drive_options
@@ -144,6 +188,12 @@ variable cloud_drives_sizes {
 variable storage_classes {
   type = list(string)
   default = ["ibmc-vpc-block-5iops-tier", "ibmc-vpc-block-5iops-tier", "ibmc-vpc-block-5iops-tier"]
+}
+
+variable "portworx_csi" {
+  type        = bool
+  description = "Enable CSI, `true` or `false`"
+  default     = false
 }
 
 

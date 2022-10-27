@@ -28,7 +28,6 @@ module "portworx-enterprise" {
   portworx_version      = var.portworx_version
   upgrade_portworx      = var.upgrade_portworx
   portworx_csi          = var.portworx_csi
-  portworx_service_name = var.portworx_service_name
   secret_type           = var.secret_type
 
   

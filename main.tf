@@ -15,8 +15,8 @@ module "portworx-enterprise" {
     storage_classes = var.storage_classes
   }
   
-}
-# External ETCD Configuration
+  
+  # External ETCD Configuration
   etcd_options = {
     use_external_etcd            = var.use_external_etcd
     etcd_secret_name             = var.etcd_secret_name
@@ -30,6 +30,9 @@ module "portworx-enterprise" {
   portworx_csi          = var.portworx_csi
   portworx_service_name = var.portworx_service_name
   secret_type           = var.secret_type
+
+  
+}
 
 terraform {
   required_version = ">=0.13"

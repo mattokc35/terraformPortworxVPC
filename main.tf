@@ -16,7 +16,20 @@ module "portworx-enterprise" {
   }
   
 }
+# External ETCD Configuration
+  etcd_options = {
+    use_external_etcd            = var.use_external_etcd
+    etcd_secret_name             = var.etcd_secret_name
+    external_etcd_connection_url = var.external_etcd_connection_url
+  }
 
+  # Portworx Enterprise Configuration
+  pwx_plan              = var.pwx_plan
+  portworx_version      = var.portworx_version
+  upgrade_portworx      = var.upgrade_portworx
+  portworx_csi          = var.portworx_csi
+  portworx_service_name = var.portworx_service_name
+  secret_type           = var.secret_type
 
 terraform {
   required_version = ">=0.13"

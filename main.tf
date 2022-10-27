@@ -199,3 +199,4 @@ variable "portworx_csi" {
 variable use_cloud_drives {
   type = bool
   default = true
+}
